@@ -10,7 +10,7 @@ from .helpers.logger import logger , init as log_init
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
 
-
+@asynccontextmanager
 async def lifespan(app: FastAPI):
     load_dotenv()
     log_init()
