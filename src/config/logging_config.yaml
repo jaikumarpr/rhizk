@@ -1,0 +1,52 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+handlers:
+  info_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: simple
+    filename: logs/app.log
+    when: 'midnight'
+    interval: 1
+    backupCount: 7
+    encoding: 'utf-8'
+    level: INFO
+
+  error_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: simple
+    filename: logs/error.log
+    when: 'midnight'
+    interval: 1
+    backupCount: 7
+    encoding: 'utf-8'
+    level: ERROR
+
+  request_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: simple
+    filename: logs/requests.log
+    when: 'midnight'
+    interval: 1
+    backupCount: 7
+    encoding: 'utf-8'
+    level: INFO
+
+loggers:
+  app:
+    level: INFO
+    handlers: [info_file_handler, error_file_handler]
+    propagate: no
+
+  request_logger:
+    level: INFO
+    handlers: [request_file_handler]
+    propagate: no
+
+root:
+  level: WARNING
+  handlers: [info_file_handler, error_file_handler]
