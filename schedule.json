@@ -1,0 +1,346 @@
+{
+  "WBS": [
+    {
+      "PMINumber": "1",
+      "Type": "WBS Level",
+      "Name": "Site Preparation",
+      "Children": [
+        {
+          "PMINumber": "1.1",
+          "Type": "WBS Level",
+          "Name": "Site Survey",
+          "Children": [
+            {
+              "PMINumber": "1.1.1",
+              "Type": "Activity",
+              "Name": "Topographic Survey",
+              "Duration": 3,
+              "ThreePointEstimate": {
+                "Optimistic": 2,
+                "MostLikely": 3,
+                "Pessimistic": 4
+              },
+              "Predecessors": []
+            },
+            {
+              "PMINumber": "1.1.2",
+              "Type": "Activity",
+              "Name": "Soil Testing",
+              "Duration": 2,
+              "ThreePointEstimate": {
+                "Optimistic": 1,
+                "MostLikely": 2,
+                "Pessimistic": 3
+              },
+              "Predecessors": ["1.1.1"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "1.2",
+          "Type": "Activity",
+          "Name": "Site Clearing",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 7
+          },
+          "Predecessors": ["1.1.2"]
+        }
+      ]
+    },
+    {
+      "PMINumber": "2",
+      "Type": "WBS Level",
+      "Name": "Foundation",
+      "Children": [
+        {
+          "PMINumber": "2.1",
+          "Type": "Activity",
+          "Name": "Excavation",
+          "Duration": 8,
+          "ThreePointEstimate": {
+            "Optimistic": 7,
+            "MostLikely": 8,
+            "Pessimistic": 10
+          },
+          "Predecessors": ["1.2"]
+        },
+        {
+          "PMINumber": "2.2",
+          "Type": "Activity",
+          "Name": "Footing Installation",
+          "Duration": 7,
+          "ThreePointEstimate": {
+            "Optimistic": 6,
+            "MostLikely": 7,
+            "Pessimistic": 9
+          },
+          "Predecessors": ["2.1"]
+        },
+        {
+          "PMINumber": "2.3",
+          "Type": "Activity",
+          "Name": "Foundation Walls",
+          "Duration": 6,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 6,
+            "Pessimistic": 8
+          },
+          "Predecessors": ["2.2"]
+        },
+        {
+          "PMINumber": "2.4",
+          "Type": "Activity",
+          "Name": "Waterproofing",
+          "Duration": 4,
+          "ThreePointEstimate": {
+            "Optimistic": 3,
+            "MostLikely": 4,
+            "Pessimistic": 6
+          },
+          "Predecessors": ["2.3"]
+        }
+      ]
+    },
+    {
+      "PMINumber": "3",
+      "Type": "WBS Level",
+      "Name": "Structural Work",
+      "Children": [
+        {
+          "PMINumber": "3.1",
+          "Type": "Activity",
+          "Name": "Structural Steel Erection",
+          "Duration": 10,
+          "ThreePointEstimate": {
+            "Optimistic": 9,
+            "MostLikely": 10,
+            "Pessimistic": 12
+          },
+          "Predecessors": ["2.4"]
+        },
+        {
+          "PMINumber": "3.2",
+          "Type": "Activity",
+          "Name": "Concrete Slabs",
+          "Duration": 7,
+          "ThreePointEstimate": {
+            "Optimistic": 6,
+            "MostLikely": 7,
+            "Pessimistic": 9
+          },
+          "Predecessors": ["3.1"]
+        },
+        {
+          "PMINumber": "3.3",
+          "Type": "Activity",
+          "Name": "Roof Deck Installation",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 7
+          },
+          "Predecessors": ["3.2"]
+        },
+        {
+          "PMINumber": "3.4",
+          "Type": "Activity",
+          "Name": "Exterior Walls",
+          "Duration": 8,
+          "ThreePointEstimate": {
+            "Optimistic": 7,
+            "MostLikely": 8,
+            "Pessimistic": 10
+          },
+          "Predecessors": ["3.3"]
+        },
+        {
+          "PMINumber": "3.5",
+          "Type": "Activity",
+          "Name": "Windows Installation",
+          "Duration": 4,
+          "ThreePointEstimate": {
+            "Optimistic": 3,
+            "MostLikely": 4,
+            "Pessimistic": 5
+          },
+          "Predecessors": ["3.4"]
+        }
+      ]
+    },
+    {
+      "PMINumber": "4",
+      "Type": "WBS Level",
+      "Name": "Interior Work",
+      "Children": [
+        {
+          "PMINumber": "4.1",
+          "Type": "Activity",
+          "Name": "Partition Walls",
+          "Duration": 6,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 6,
+            "Pessimistic": 8
+          },
+          "Predecessors": ["3.5"]
+        },
+        {
+          "PMINumber": "4.2",
+          "Type": "Activity",
+          "Name": "Electrical Rough-In",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 6
+          },
+          "Predecessors": ["4.1"]
+        },
+        {
+          "PMINumber": "4.3",
+          "Type": "Activity",
+          "Name": "Plumbing Rough-In",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 7
+          },
+          "Predecessors": ["4.1"]
+        },
+        {
+          "PMINumber": "4.4",
+          "Type": "Activity",
+          "Name": "HVAC Rough-In",
+          "Duration": 6,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 6,
+            "Pessimistic": 8
+          },
+          "Predecessors": ["4.1"]
+        },
+        {
+          "PMINumber": "4.5",
+          "Type": "Activity",
+          "Name": "Interior Framing",
+          "Duration": 8,
+          "ThreePointEstimate": {
+            "Optimistic": 7,
+            "MostLikely": 8,
+            "Pessimistic": 10
+          },
+          "Predecessors": ["4.2", "4.3", "4.4"]
+        },
+        {
+          "PMINumber": "4.6",
+          "Type": "Activity",
+          "Name": "Drywall Installation",
+          "Duration": 6,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 6,
+            "Pessimistic": 7
+          },
+          "Predecessors": ["4.5"]
+        },
+        {
+          "PMINumber": "4.7",
+          "Type": "Activity",
+          "Name": "Painting",
+          "Duration": 4,
+          "ThreePointEstimate": {
+            "Optimistic": 3,
+            "MostLikely": 4,
+            "Pessimistic": 5
+          },
+          "Predecessors": ["4.6"]
+        },
+        {
+          "PMINumber": "4.8",
+          "Type": "Activity",
+          "Name": "Flooring Installation",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 7
+          },
+          "Predecessors": ["4.7"]
+        },
+        {
+          "PMINumber": "4.9",
+          "Type": "Activity",
+          "Name": "Finish Carpentry",
+          "Duration": 6,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 6,
+            "Pessimistic": 8
+          },
+          "Predecessors": ["4.8"]
+        },
+        {
+          "PMINumber": "4.10",
+          "Type": "Activity",
+          "Name": "Final Inspections",
+          "Duration": 3,
+          "ThreePointEstimate": {
+            "Optimistic": 2,
+            "MostLikely": 3,
+            "Pessimistic": 4
+          },
+          "Predecessors": ["4.9"]
+        }
+      ]
+    },
+    {
+      "PMINumber": "5",
+      "Type": "WBS Level",
+      "Name": "Site Work",
+      "Children": [
+        {
+          "PMINumber": "5.1",
+          "Type": "Activity",
+          "Name": "Landscaping",
+          "Duration": 5,
+          "ThreePointEstimate": {
+            "Optimistic": 4,
+            "MostLikely": 5,
+            "Pessimistic": 6
+          },
+          "Predecessors": ["4.10"]
+        },
+        {
+          "PMINumber": "5.2",
+          "Type": "Activity",
+          "Name": "Paving",
+          "Duration": 4,
+          "ThreePointEstimate": {
+            "Optimistic": 3,
+            "MostLikely": 4,
+            "Pessimistic": 5
+          },
+          "Predecessors": ["4.10"]
+        },
+        {
+          "PMINumber": "5.3",
+          "Type": "Activity",
+          "Name": "Site Cleanup",
+          "Duration": 3,
+          "ThreePointEstimate": {
+            "Optimistic": 2,
+            "MostLikely": 3,
+            "Pessimistic": 4
+          },
+          "Predecessors": ["5.1", "5.2"]
+        }
+      ]
+    }
+  ]
+}
