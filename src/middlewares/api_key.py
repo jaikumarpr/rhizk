@@ -1,12 +1,11 @@
 # src/middlewares/api_key.py
 from fastapi import Request, HTTPException
 from starlette.middleware.base import BaseHTTPMiddleware
-import secrets
+import os
 
 API_KEY_NAME = "X-API-Key"
-API_KEY = secrets.token_urlsafe(32)
 
-print(f"Generated API Key: {API_KEY}")
+API_KEY = os.getenv("API_KEY")
 
 class APIKeyMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):

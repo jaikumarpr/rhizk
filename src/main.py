@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from .middlewares.cors import add_cors_middleware
 from .middlewares.security_headers import SecurityHeadersMiddleware
-# from .middlewares.api_key import APIKeyMiddleware
+from .middlewares.api_key import APIKeyMiddleware
 from .middlewares.rate_limiter import RateLimitMiddleware
 from .routers.sra import router as sra_router
 from dotenv import load_dotenv
@@ -19,7 +19,7 @@ add_cors_middleware(app)
 app.add_middleware(SecurityHeadersMiddleware)
 
 # Add API Key middleware
-# app.add_middleware(APIKeyMiddleware)
+app.add_middleware(APIKeyMiddleware)
 
 # Add Rate Limit middleware
 app.add_middleware(RateLimitMiddleware, limit=100)
