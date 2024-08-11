@@ -18,7 +18,7 @@ class LogRequestsMiddleware(BaseHTTPMiddleware):
         client_ip = request.client.host
 
         request_logger.info(
-            f"{request.method} {request.url.path} - Status: {response.status_code} - Time: {formatted_process_time}s - IP: {client_ip} - user-agent: {request.headers.get("User-Agent", "")}"
+            f"{request.method} {request.url.path} - Status: {response.status_code} - Time: {formatted_process_time}s - IP: {client_ip} - user-agent: {request.headers.get('User-Agent', '')}"
         )
 
         return response
