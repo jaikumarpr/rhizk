@@ -1,5 +1,8 @@
 # src/main.py
 from fastapi import FastAPI
+from dotenv import load_dotenv
+load_dotenv()
+
 from .middlewares.cors import add_cors_middleware
 from .middlewares.security_headers import SecurityHeadersMiddleware
 from .middlewares.api_key import APIKeyMiddleware
@@ -7,13 +10,14 @@ from .middlewares.rate_limiter import RateLimitMiddleware
 from .middlewares.httplog import LogRequestsMiddleware
 from .routers.sra import router as sra_router
 from .helpers.logger import logger , init as log_init
-from dotenv import load_dotenv
+
 from contextlib import asynccontextmanager
+
+
+log_init()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    load_dotenv()
-    log_init()
     logger.info("application started")
     
     yield

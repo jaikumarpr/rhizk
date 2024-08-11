@@ -4,6 +4,7 @@ from ..models.sra import ProjectSchedule, SRARunRequest, SRARunResponse, NewSche
 from ..lib.openai import get_schedule
 from ..lib.cache import get_schedule as get_schedue_from_cache, cache_schedule
 from ..lib.sra import perform_sra
+from ..helpers.logger import logger
 
 router = APIRouter()
 
@@ -52,4 +53,12 @@ async def get_project_sra(schedule_id: str):
         
     return {"message": f"sra simulation succesfull",
              "schedule_id": schedule_id, "sra_result": sra_result}
+
+
+@router.get("/notify/slideview", tags=["SRA"])
+async def notify_slide_view():
+    print("slide viewed")
+    logger.info("slide viewed")
+        
+    return {"message": f"thanks for viewing"}
 
