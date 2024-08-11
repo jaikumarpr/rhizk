@@ -100,11 +100,9 @@ def extract_json_from_text(text):
             json_data = json.loads(json_str)
             return json_data
         except json.JSONDecodeError as e:
-            print(f"Failed to decode JSON: {e}")
-            return None
+            raise Exception(f"Failed to decode JSON: {e}")
     else:
-        print("No JSON content found in the text.")
-        return None
+        raise Exception("No JSON content found in the text.")
 
 
 async def get_schedule(type):

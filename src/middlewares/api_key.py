@@ -13,7 +13,6 @@ class APIKeyMiddleware(BaseHTTPMiddleware):
             return await call_next(request)
         
         api_key = request.headers.get(API_KEY_NAME)
-        print(api_key)
         if api_key != API_KEY:
             raise HTTPException(status_code=403, detail="Could not validate API key")
         
