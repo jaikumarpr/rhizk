@@ -57,7 +57,7 @@ data_json = {
 def get_prompt(type: str):
 
     prompt = f"""
-    You have vast experience in project scheduling in construction industry. come up with a construction schedule for a {type} with 100 activities with relationships between the schedules. 
+    You have vast experience in project scheduling in construction industry. come up with a construction schedule for a {type} with  not more than 50 activities with relationships between the schedules. 
     
     Make sure activities are grouped under realistic work break down structure. Activity relationship should be sensible, try to come up with a bit complex relationship graph but has a sensible critical path.
     Each activity should consist of duration, predecessors and also three point estimate values ( optimistic, most likely and pessimistic durations). 
@@ -78,7 +78,7 @@ def get_prompt(type: str):
 async def askopenai(prompt):
 
     response = await client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are an exceptional project scheduler in construction industry with all knowledge of risk associated with activities"},
             {"role": "user", "content": prompt}
