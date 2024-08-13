@@ -1,6 +1,11 @@
-import uuid
 from pymemcache.client.base import Client
 import json
+from ..helpers.id import create_id_with_prefix
+
+
+class ScheduleNotFoundError(Exception):
+    pass
+
 
 # Configure memcached client
 client = Client(('localhost', 11211))
@@ -22,19 +27,23 @@ def json_deserializer(key, value, flags):
 client = Client(('localhost', 11211), serializer=json_serializer, deserializer=json_deserializer)
 
 def add_schedule(schedule):
-    id = str(uuid.uuid4())
+    id = create_id_with_prefix("schedule")
     client.set(id, schedule)
     return id
 
 def get_schedule(id):
     schedule = client.get(id)
     if schedule is None:
-        raise KeyError(f"No schedule found for id: {id}")
+        raise ScheduleNotFoundError(f"Schedule with ID {id} not found")
     return schedule
 
 def remove_schedule(id):
     client.delete(id)
+    
+def remove_schedules():
+    # asynchronous operation
+    client.flush_all()
 
-# Optional: Add a function to check if a schedule exists
+
 def schedule_exists(id):
     return client.get(id) is not None

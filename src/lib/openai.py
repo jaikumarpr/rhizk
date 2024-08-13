@@ -1,57 +1,55 @@
 import json
 import os
-import asyncio
-import openai
 import re
-
-# openai.api_key = os.getenv('OPEN_API_KEY')
 from openai import AsyncOpenAI
 client = AsyncOpenAI(api_key=os.getenv('OPENAI_API_KEY_RHIZK'))
 
-data_json = {
-        "WBS": [
-            {
-                "PMINumber": "1",
-                "Type": "WBS Level",
-                "Name": "Site Preparation",
-                "Children": [
-                    {
-                        "PMINumber": "1.1",
-                        "Type": "WBS Level",
-                        "Name": "Site Survey",
-                        "Children": [
-                            {
-                                "PMINumber": "1.1.1",
-                                "Type": "Activity",
-                                "Name": "Topographic Survey",
-                                "Duration": 3,
-                                "ThreePointEstimate": {
-                                    "Optimistic": 2,
-                                    "MostLikely": 3,
-                                    "Pessimistic": 4
-                                },
-                                "Predecessors": []
+from ..utils.general import load_json
+
+data_json= {
+    "WBS": [
+        {
+            "PMINumber": "1",
+            "Type": "WBS Level",
+            "Name": "Site Preparation",
+            "Children": [
+                {
+                    "PMINumber": "1.1",
+                    "Type": "WBS Level",
+                    "Name": "Site Survey",
+                    "Children": [
+                        {
+                            "PMINumber": "1.1.1",
+                            "Type": "Activity",
+                            "Name": "Topographic Survey",
+                            "Duration": 3,
+                            "ThreePointEstimate": {
+                                "Optimistic": 2,
+                                "MostLikely": 3,
+                                "Pessimistic": 4
                             },
-                            {
-                                "PMINumber": "1.1.2",
-                                "Type": "Activity",
-                                "Name": "Soil Testing",
-                                "Duration": 2,
-                                "ThreePointEstimate": {
-                                    "Optimistic": 1,
-                                    "MostLikely": 2,
-                                    "Pessimistic": 3
-                                },
-                                "Predecessors": ["1.1.1"]
-                            }
-                        ]
-                    }
-                ]
-            }
+                            "Predecessors": []
+                        },
+                        {
+                            "PMINumber": "1.1.2",
+                            "Type": "Activity",
+                            "Name": "Soil Testing",
+                            "Duration": 2,
+                            "ThreePointEstimate": {
+                                "Optimistic": 1,
+                                "MostLikely": 2,
+                                "Pessimistic": 3
+                            },
+                            "Predecessors": ["1.1.1"]
+                        }
+                    ]
+                }
+            ]
+        }
 
-        ]
+    ]
 
-    }
+}
 
 
 def get_prompt(type: str):
@@ -105,7 +103,7 @@ def extract_json_from_text(text):
         raise Exception("No JSON content found in the text.")
 
 
-async def get_schedule(type):
+async def generate_schedule(type):
     prompt = get_prompt(type)
     content = await askopenai(prompt)
     json_data = extract_json_from_text(content)

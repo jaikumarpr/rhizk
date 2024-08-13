@@ -6,6 +6,9 @@ from typing import Dict, List, Tuple
 from copy import deepcopy
 from scipy.interpolate import interp1d
 
+class SRACalculationError(Exception):
+    pass
+
 
 class Activity:
     def __init__(self, name, optimistic, most_likely, pessimistic, duration, activity_name):
@@ -300,36 +303,38 @@ def generate_hist_cdf(durations):
 
 
 def perform_sra(schedule, num_simulations=3000):
-
-    validate_schedule_input(schedule)
-
-    # make activities
-    activities = {}
-
-    # Process the WBS from the JSON
-    for element in schedule['WBS']:
-        process_wbs(element, activities)
-
-       # Topological sort with cycle detection
+    
     try:
+
+        validate_schedule_input(schedule)
+
+        # make activities
+        activities = {}
+
+        # Process the WBS from the JSON
+        for element in schedule['WBS']:
+            process_wbs(element, activities)
+
+        # Topological sort with cycle detection
         topo_order = topological_sort(activities)
-    except ValueError as e:
-        return {"error": str(e)}
 
-    # monte carlo simulations
+        # monte carlo simulations
 
-    project_durations, duration_records = monte_carlo_simulation(
-        activities, topo_order, num_simulations)
-    results = summarize_results(project_durations)
-    baseline_duration = calculate_baseline_duration(activities, topo_order)
-    criticality_index = calculate_criticality_index(
-        activities, num_simulations)
-    sensitivity_results = sensitivity_analysis(
-        project_durations, duration_records, activities)
-    significance_index = calculate_significance_index(
-        duration_records, project_durations, activities)
+        project_durations, duration_records = monte_carlo_simulation(
+            activities, topo_order, num_simulations)
+        results = summarize_results(project_durations)
+        baseline_duration = calculate_baseline_duration(activities, topo_order)
+        criticality_index = calculate_criticality_index(
+            activities, num_simulations)
+        sensitivity_results = sensitivity_analysis(
+            project_durations, duration_records, activities)
+        significance_index = calculate_significance_index(
+            duration_records, project_durations, activities)
 
-    project_hist_cdf = generate_hist_cdf(project_durations)
+        project_hist_cdf = generate_hist_cdf(project_durations)
 
-    return {"project_hist_cdf": project_hist_cdf, "results": results, "baseline_duration": baseline_duration,
-            "criticality_index": criticality_index,  "sensitivity_results": sensitivity_results, "significance_index": significance_index}
+        return {"project_hist_cdf": project_hist_cdf, "results": results, "baseline_duration": baseline_duration,
+                "criticality_index": criticality_index,  "sensitivity_results": sensitivity_results, "significance_index": significance_index}
+    except Exception as e:
+            print(e)
+            raise SRACalculationError(str(e))

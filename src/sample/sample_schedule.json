@@ -1,0 +1,351 @@
+{
+  "WBS": [
+    {
+      "PMINumber": "1",
+      "Type": "WBS Level",
+      "Name": "Site Preparation",
+      "Children": [
+        {
+          "PMINumber": "1.1",
+          "Type": "WBS Level",
+          "Name": "Site Survey",
+          "Children": [
+            {
+              "PMINumber": "1.1.1",
+              "Type": "Activity",
+              "Name": "Topographic Survey",
+              "Duration": 3,
+              "ThreePointEstimate": {
+                "Optimistic": 2,
+                "MostLikely": 3,
+                "Pessimistic": 4
+              },
+              "Predecessors": []
+            },
+            {
+              "PMINumber": "1.1.2",
+              "Type": "Activity",
+              "Name": "Soil Testing",
+              "Duration": 2,
+              "ThreePointEstimate": {
+                "Optimistic": 1,
+                "MostLikely": 2,
+                "Pessimistic": 3
+              },
+              "Predecessors": ["1.1.1"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "1.2",
+          "Type": "WBS Level",
+          "Name": "Site Clearing",
+          "Children": [
+            {
+              "PMINumber": "1.2.1",
+              "Type": "Activity",
+              "Name": "Clear Vegetation",
+              "Duration": 4,
+              "ThreePointEstimate": {
+                "Optimistic": 3,
+                "MostLikely": 4,
+                "Pessimistic": 5
+              },
+              "Predecessors": ["1.1.2"]
+            },
+            {
+              "PMINumber": "1.2.2",
+              "Type": "Activity",
+              "Name": "Level the Site",
+              "Duration": 5,
+              "ThreePointEstimate": {
+                "Optimistic": 4,
+                "MostLikely": 5,
+                "Pessimistic": 7
+              },
+              "Predecessors": ["1.2.1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PMINumber": "2",
+      "Type": "WBS Level",
+      "Name": "Foundation Works",
+      "Children": [
+        {
+          "PMINumber": "2.1",
+          "Type": "WBS Level",
+          "Name": "Excavation",
+          "Children": [
+            {
+              "PMINumber": "2.1.1",
+              "Type": "Activity",
+              "Name": "General Excavation",
+              "Duration": 7,
+              "ThreePointEstimate": {
+                "Optimistic": 5,
+                "MostLikely": 7,
+                "Pessimistic": 10
+              },
+              "Predecessors": ["1.2.2"]
+            },
+            {
+              "PMINumber": "2.1.2",
+              "Type": "Activity",
+              "Name": "Trench Excavation",
+              "Duration": 3,
+              "ThreePointEstimate": {
+                "Optimistic": 2,
+                "MostLikely": 3,
+                "Pessimistic": 4
+              },
+              "Predecessors": ["2.1.1"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "2.2",
+          "Type": "WBS Level",
+          "Name": "Footing Works",
+          "Children": [
+            {
+              "PMINumber": "2.2.1",
+              "Type": "Activity",
+              "Name": "Formwork for Footings",
+              "Duration": 6,
+              "ThreePointEstimate": {
+                "Optimistic": 5,
+                "MostLikely": 6,
+                "Pessimistic": 8
+              },
+              "Predecessors": ["2.1.2"]
+            },
+            {
+              "PMINumber": "2.2.2",
+              "Type": "Activity",
+              "Name": "Pour Concrete Footings",
+              "Duration": 4,
+              "ThreePointEstimate": {
+                "Optimistic": 3,
+                "MostLikely": 4,
+                "Pessimistic": 6
+              },
+              "Predecessors": ["2.2.1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PMINumber": "3",
+      "Type": "WBS Level",
+      "Name": "Superstructure",
+      "Children": [
+        {
+          "PMINumber": "3.1",
+          "Type": "WBS Level",
+          "Name": "Framing",
+          "Children": [
+            {
+              "PMINumber": "3.1.1",
+              "Type": "Activity",
+              "Name": "Steel Framing",
+              "Duration": 10,
+              "ThreePointEstimate": {
+                "Optimistic": 8,
+                "MostLikely": 10,
+                "Pessimistic": 14
+              },
+              "Predecessors": ["2.2.2"]
+            },
+            {
+              "PMINumber": "3.1.2",
+              "Type": "Activity",
+              "Name": "Roof Framing",
+              "Duration": 8,
+              "ThreePointEstimate": {
+                "Optimistic": 7,
+                "MostLikely": 8,
+                "Pessimistic": 10
+              },
+              "Predecessors": ["3.1.1"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "3.2",
+          "Type": "WBS Level",
+          "Name": "Wall Construction",
+          "Children": [
+            {
+              "PMINumber": "3.2.1",
+              "Type": "Activity",
+              "Name": "Install Exterior Walls",
+              "Duration": 15,
+              "ThreePointEstimate": {
+                "Optimistic": 12,
+                "MostLikely": 15,
+                "Pessimistic": 18
+              },
+              "Predecessors": ["3.1.2"]
+            },
+            {
+              "PMINumber": "3.2.2",
+              "Type": "Activity",
+              "Name": "Install Interior Walls",
+              "Duration": 10,
+              "ThreePointEstimate": {
+                "Optimistic": 8,
+                "MostLikely": 10,
+                "Pessimistic": 13
+              },
+              "Predecessors": ["3.2.1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PMINumber": "4",
+      "Type": "WBS Level",
+      "Name": "Roofing",
+      "Children": [
+        {
+          "PMINumber": "4.1",
+          "Type": "Activity",
+          "Name": "Install Roof",
+          "Duration": 7,
+          "ThreePointEstimate": {
+            "Optimistic": 5,
+            "MostLikely": 7,
+            "Pessimistic": 9
+          },
+          "Predecessors": ["3.2.2"]
+        }
+      ]
+    },
+    {
+      "PMINumber": "5",
+      "Type": "WBS Level",
+      "Name": "M&E Installations",
+      "Children": [
+        {
+          "PMINumber": "5.1",
+          "Type": "WBS Level",
+          "Name": "Electrical Work",
+          "Children": [
+            {
+              "PMINumber": "5.1.1",
+              "Type": "Activity",
+              "Name": "Wiring Installation",
+              "Duration": 10,
+              "ThreePointEstimate": {
+                "Optimistic": 8,
+                "MostLikely": 10,
+                "Pessimistic": 12
+              },
+              "Predecessors": ["3.2.2"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "5.2",
+          "Type": "WBS Level",
+          "Name": "HVAC Work",
+          "Children": [
+            {
+              "PMINumber": "5.2.1",
+              "Type": "Activity",
+              "Name": "Install HVAC System",
+              "Duration": 12,
+              "ThreePointEstimate": {
+                "Optimistic": 10,
+                "MostLikely": 12,
+                "Pessimistic": 14
+              },
+              "Predecessors": ["5.1.1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PMINumber": "6",
+      "Type": "WBS Level",
+      "Name": "Finishes",
+      "Children": [
+        {
+          "PMINumber": "6.1",
+          "Type": "WBS Level",
+          "Name": "Interior Finishes",
+          "Children": [
+            {
+              "PMINumber": "6.1.1",
+              "Type": "Activity",
+              "Name": "Paint Interior Surfaces",
+              "Duration": 5,
+              "ThreePointEstimate": {
+                "Optimistic": 4,
+                "MostLikely": 5,
+                "Pessimistic": 7
+              },
+              "Predecessors": ["5.2.1"]
+            }
+          ]
+        },
+        {
+          "PMINumber": "6.2",
+          "Type": "WBS Level",
+          "Name": "Exterior Finishes",
+          "Children": [
+            {
+              "PMINumber": "6.2.1",
+              "Type": "Activity",
+              "Name": "Install Exterior Cladding",
+              "Duration": 6,
+              "ThreePointEstimate": {
+                "Optimistic": 5,
+                "MostLikely": 6,
+                "Pessimistic": 8
+              },
+              "Predecessors": ["4.1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PMINumber": "7",
+      "Type": "WBS Level",
+      "Name": "Final Inspection and Handover",
+      "Children": [
+        {
+          "PMINumber": "7.1",
+          "Type": "Activity",
+          "Name": "Conduct Final Inspection",
+          "Duration": 3,
+          "ThreePointEstimate": {
+            "Optimistic": 2,
+            "MostLikely": 3,
+            "Pessimistic": 5
+          },
+          "Predecessors": ["6.1.1", "6.2.1"]
+        },
+        {
+          "PMINumber": "7.2",
+          "Type": "Activity",
+          "Name": "Handover to Client",
+          "Duration": 1,
+          "ThreePointEstimate": {
+            "Optimistic": 1,
+            "MostLikely": 1,
+            "Pessimistic": 1
+          },
+          "Predecessors": ["7.1"]
+        }
+      ]
+    }
+  ]
+}

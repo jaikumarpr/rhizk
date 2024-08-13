@@ -1,57 +1,35 @@
 # src/main.py
+from .helpers.logger import logger, init as log_init
+from contextlib import asynccontextmanager
+from . import routers
+from . import middlewares
+import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
+
 load_dotenv()
-
-from .middlewares.cors import add_cors_middleware
-from .middlewares.security_headers import SecurityHeadersMiddleware
-from .middlewares.api_key import APIKeyMiddleware
-from .middlewares.rate_limiter import RateLimitMiddleware
-from .middlewares.httplog import LogRequestsMiddleware
-from .routers.sra import router as sra_router
-from .helpers.logger import logger , init as log_init
-
-from contextlib import asynccontextmanager
-
-
 log_init()
+
+port = os.getenv("PORT")
+host = os.getenv("HOST")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("application started")
-    
+
     yield
-    
+
     logger.info("application shutdown")
-    
+
 app = FastAPI(lifespan=lifespan)
 
-# Add the Log Requests middleware
-app.add_middleware(LogRequestsMiddleware)
+# add all middlewares
+middlewares.init(app)
 
-# Add CORS middleware
-add_cors_middleware(app)
-
-# Add security headers middleware
-app.add_middleware(SecurityHeadersMiddleware)
-
-# Add API Key middleware
-app.add_middleware(APIKeyMiddleware)
-
-# Add Rate Limit middleware
-app.add_middleware(RateLimitMiddleware, limit=100)
-
-# Include the SRA router with a version prefix
-app.include_router(sra_router, prefix="/v1")
-
-@app.get("/", tags=["root"])
-async def root():
-    return {"message": "Welcome to the Schedule Risk Analysis API"}
-
-@app.get("/health", tags=["health"])
-async def health_check():
-    return {"status": "OK"}
+# Include all routers from the folder routers
+routers.init(app, "v1")
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host, port)

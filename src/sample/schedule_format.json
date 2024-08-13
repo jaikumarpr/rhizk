@@ -1,0 +1,44 @@
+{
+    "WBS": [
+        {
+            "PMINumber": "1",
+            "Type": "WBS Level",
+            "Name": "Site Preparation",
+            "Children": [
+                {
+                    "PMINumber": "1.1",
+                    "Type": "WBS Level",
+                    "Name": "Site Survey",
+                    "Children": [
+                        {
+                            "PMINumber": "1.1.1",
+                            "Type": "Activity",
+                            "Name": "Topographic Survey",
+                            "Duration": 3,
+                            "ThreePointEstimate": {
+                                "Optimistic": 2,
+                                "MostLikely": 3,
+                                "Pessimistic": 4
+                            },
+                            "Predecessors": []
+                        },
+                        {
+                            "PMINumber": "1.1.2",
+                            "Type": "Activity",
+                            "Name": "Soil Testing",
+                            "Duration": 2,
+                            "ThreePointEstimate": {
+                                "Optimistic": 1,
+                                "MostLikely": 2,
+                                "Pessimistic": 3
+                            },
+                            "Predecessors": ["1.1.1"]
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+
+}
