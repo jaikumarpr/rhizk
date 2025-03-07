@@ -22,8 +22,8 @@ Capital projects often suffer from **cost overruns, schedule delays, and unmanag
 - **Scheduled Risk Reports:**
 
 ## Roadmap
-- [ ]**Automated Schedule Ingestion:** Seamlessly fetches schedule updates from common scheduling tools.
-- [ ]**Customizable Risk Criteria:** Adaptable to organization-specific risk factors and project requirements.
-- [ ]**Audit Trail & Historical Analysis:** Tracks evolving risk profiles across the project lifecycle.
+- [ ] **Automated Schedule Ingestion:** Seamlessly fetches schedule updates from common scheduling tools.
+- [ ] **Customizable Risk Criteria:** Adaptable to organization-specific risk factors and project requirements.
+- [ ] **Audit Trail & Historical Analysis:** Tracks evolving risk profiles across the project lifecycle.
 - [ ] Add support for direct Primavera P6 and MS Project integration.
 - [ ] Enhance AI models with **LLM-based schedule description analysis**.
