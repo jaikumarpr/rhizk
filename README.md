@@ -26,3 +26,19 @@ Capital projects often suffer from **cost overruns, schedule delays, and unmanag
 - [ ] **Audit Trail & Historical Analysis:** Tracks evolving risk profiles across the project lifecycle.
 - [ ] Add support for direct Primavera P6 and MS Project integration.
 - [ ] Enhance AI models with **LLM-based schedule description analysis**.
+
+## Screen shots
+
+![Alt text](/screenshots/home.png?raw=True "Home")
+
+![Alt text](/screenshots/modal_1.png?raw=True "modal")
+
+![Alt text](/screenshots/schedule.png?raw=True "schedule")
+
+![Alt text](/screenshots/hist.png?raw=True "SRA")
+
+![Alt text](/screenshots/criticality.png?raw=True "Criticality")
+
+![Alt text](/screenshots/significance.png?raw=True "Significance")
+
+![Alt text](/screenshots/sched_sensitivity.png?raw=True "schedule sensitivity")
