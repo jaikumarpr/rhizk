@@ -1,31 +1,32 @@
 # Scheduled Risk Analysis for Capital Projects using AI
 
-# What if we can have AI generate risk profiles for construction project in real time ?
+# What if we can have AI generate risk profiles of construction project schedules in real time ?
 
 
-This repository contains an **experimental solution** designed to automate and enhance **risk analysis for capital projects** through AI-powered scheduling insights. The solution leverages **AI models** to analyze project schedules, identify potential risks, and generate periodic risk reports — providing project teams with proactive risk visibility throughout the project lifecycle.
+This repository contains an **experimental presentation** designed to display the use case of generative AI to perform **risk analysis for capital projects** through AI-powered scheduling insights
 
 
 ## Problem Statement
 
-Capital projects often suffer from **cost overruns, schedule delays, and unmanaged risks** due to poor visibility into evolving schedule complexities. Traditional risk analysis methods are manual, time-consuming, and often limited to **static point-in-time assessments**. This solution aims to shift the paradigm towards **continuous, AI-assisted risk monitoring**, enabling project teams to:
+Capital projects often suffer from **cost overruns, schedule delays, and unmanaged risks** due to poor visibility into evolving schedule complexities. 
+Traditional risk analysis methods are manual, time-consuming, and often limited to **static point-in-time assessments**
 
-- Detect emerging schedule risks early.
-- Understand potential impacts of schedule changes.
-- Receive automated, **scheduled risk reports** based on dynamic project data.
+**ContinuousAI-assisted risk monitoring** enable project teams to:
+
+- Detect emerging schedule risks early
+- Understand potential impacts of schedule changes
+- Receive automated, **scheduled risk reports** based on dynamic project data
 
 
-## Key Features
-
-- **AI-Driven Risk Scoring:** Identifies high-risk activities and predicts potential delays using historical risk patterns.
 - **Scheduled Risk Reports:**
 
 ## Roadmap
-- [ ] **Automated Schedule Ingestion:** Seamlessly fetches schedule updates from common scheduling tools.
-- [ ] **Customizable Risk Criteria:** Adaptable to organization-specific risk factors and project requirements.
-- [ ] **Audit Trail & Historical Analysis:** Tracks evolving risk profiles across the project lifecycle.
-- [ ] Add support for direct Primavera P6 and MS Project integration.
-- [ ] Enhance AI models with **LLM-based schedule description analysis**.
+- [ ] **AI-Driven Risk Scoring:** index historical risk patterns in a RAG pipeline.
+- [ ] **Automated Schedule Ingestion:** Seamlessly fetches schedule updates from common scheduling tools
+- [ ] **Customizable Risk Criteria:** Adaptable to organization-specific risk factors and project requirements
+- [ ] **Audit Trail & Historical Analysis:** Tracks evolving risk profiles across the project lifecycle
+- [ ] Add support for direct Primavera P6 and MS Project integration
+- [ ] Enhance AI models with **LLM-based schedule description analysis**
 
 ## Screen shots
 
