@@ -5,7 +5,6 @@
 
 This repository contains an **experimental solution** designed to automate and enhance **risk analysis for capital projects** through AI-powered scheduling insights. The solution leverages **AI models** to analyze project schedules, identify potential risks, and generate periodic risk reports — providing project teams with proactive risk visibility throughout the project lifecycle.
 
-**This was submitted to South Park Common LLama hackathon**
 
 ## Problem Statement
 
